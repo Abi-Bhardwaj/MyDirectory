@@ -1,0 +1,37 @@
+package test_package1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class SubMenu {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 System.out.println("Hello World");
+			
+			System.setProperty("webdriver.chrome.driver","E:\\Selenium\\chromedriver.exe");
+			WebDriver d = new ChromeDriver();
+			d.get("https://www.toolsqa.com");
+			d.manage().window().maximize();
+			
+			System.out.println("Start Submenu");
+			
+			Actions action = new Actions(d);
+			
+			WebElement menu = d.findElement(By.xpath("//*[@id=\"primary-menu\"]/li[3]/a/span/span"));
+			action.moveToElement(menu).perform();
+			System.out.println("Mouse Hovered on Tools");
+			
+			WebElement subMenu = d.findElement(By.xpath("//*[@id=\"primary-menu\"]/li[3]/ul/li[1]/a/span/span"));
+			action.moveToElement(subMenu).perform();
+			System.out.println("Mouse Hovered on UI Automation");
+			
+			WebElement selectMenu = d.findElement(By.xpath("//*[@id=\"primary-menu\"]/li[3]/ul/li[1]/ul/li[1]/a/span/span"));
+			selectMenu.click();
+			System.out.println("Selected Selenium Tutorials");
+	}
+
+}

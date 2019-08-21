@@ -1,0 +1,60 @@
+package test_package1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class ToolsqaForm {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("hello world");
+		System.setProperty("webdriver.chrome.driver", "E:\\Selenium\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.toolsqa.com/automation-practice-form/");
+		driver.manage().window().maximize();
+		
+		/*		System.out.println("start");
+		
+	//String theLinkText = 
+				driver.findElement(By.partialLinkText("Partial Link Test")).click();								//getText();
+        	//System.out.println(theLinkText);					
+        //theLinkText = driver.findElement(By.partialLinkText("Link Test")).click();								//getText();		
+        	//System.out.println(theLinkText);
+		
+				System.out.println("done partial link"); */
+		
+		//driver.findElement(By.xpath("[@id=\"content\"]/div[1]/div/div/div/div[2]/div/form/fieldset/div[5]/a/strong")).click();
+		
+		driver.findElement(By.name("firstname")).sendKeys("Abhishek");
+		driver.findElement(By.id("lastname")).sendKeys("Bhardwaj");
+		driver.findElement(By.id("sex-1")).click();	
+		System.out.println("123");
+		
+		driver.findElement(By.id("exp-1")).click();
+		
+		driver.findElement(By.id("datepicker")).sendKeys("08/08/2019");
+		driver.findElement(By.id("profession-1")).click();
+		
+		driver.findElement(By.id("tool-1")).click();
+		
+		//driver.findElement(By.partialLinkText("\"http://toolsqa.com/wp-content/uploads/2014/04/OnlineStore.zip\"")).click();
+		
+		WebElement we =  driver.findElement(By.id("continents"));
+		Select s = new Select(we);
+		s.selectByVisibleText("North America");
+		
+		WebElement we2 = driver.findElement(By.id("selenium_commands"));
+		Select s2= new Select(we2);
+		s2.selectByVisibleText("WebElement Commands");
+		
+		//driver.findElement(By.id("submit")).click();	
+		
+		driver.findElement(By.className("bcd")).sendKeys("Beginning with testing");
+		
+		System.out.println("done");
+	}
+
+}
